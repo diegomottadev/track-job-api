@@ -1,4 +1,4 @@
-#Goal of project
+# Goal of project
 
 The project is a web application built using Node.js, Express, and TypeScript that allows users to track their job applications and contacts during the job search process.
 
