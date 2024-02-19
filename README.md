@@ -33,7 +33,7 @@ To run the code on your computer, you'll need to install Node.js and a Node.js p
     DB_PASS=<VALUE_DB_USER>
     AWS_ACCESS_KEY_ID=<VALUE_AWS_ACCESS_KEY_ID>
     AWS_SECRET_ACCESS_KEY=<VALUE_AWS_SECRET_ACCESS_KEY>
-    AWS_REGION==<VALUE_AWS_REGION>
+    AWS_REGION=<VALUE_AWS_REGION>
 
   Note: It is optional to configure an AWS S3 (Simple Storage Service) user and create a bucket with permissions to read and write images. The AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and AWS_REGION should be replaced with your own values.
 
