@@ -16,6 +16,7 @@ import permissionsRouter from './api/resources/permissions/permissions.route';
 import profileRouter from './api/resources/profile/profile.route';
 import { initializeDatabase } from './helpers/initializeDatabase';
 import applicationsRouter from './api/resources/applications/applications.route';
+import contactRouter from './api/resources/contacts/contacts.route';
 
 const app: Express = express(); // Create an instance of the Express application
 
@@ -50,7 +51,8 @@ app.use('/users', usersRouter); // Route requests for user-related endpoints to 
 app.use('/roles', rolesRouter); // Route requests for role-related endpoints to the rolesRouter
 app.use('/permissions', permissionsRouter); // Route requests for permission-related endpoints to the permissionsRouter
 app.use('/profile', profileRouter); // Route requests for permission-related endpoints to the permissionsRouter
-app.use('/applications', applicationsRouter); // Route requests for permission-related endpoints to the permissionsRouter
+app.use('/applications', applicationsRouter); // Route requests for applications endpoints to the permissionsRouter
+app.use('/contacts', contactRouter); // Route requests for contacts endpoints to the permissionsRouter
 app.use(procesarErrores); // Custom error handling middleware
 app.use(procesarErroresDeTamañoDeBody); // Custom error handling middleware
 
