@@ -21,9 +21,9 @@ export const create = async (application: {
     linkedin: string,
 }): Promise<Application> => {
     const { position, company, companyWebsite, linkApplication, status, notes, appliedDate, name, email, linkedin } = application;
-    console.log(application)
+
     const parsedAppliedDate = new Date(appliedDate);
-    console.log(parsedAppliedDate)
+
     const contactCreate = await Contact.create({
         name,
         email,

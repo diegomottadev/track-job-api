@@ -49,6 +49,15 @@ export class Application extends Model {
   @Column({
     type: DataType.DATE,
     allowNull: false,
+    get() {
+      const appliedDate = this.getDataValue('appliedDate');
+      // Verificar si appliedDate es una instancia de Date y si no está vacío
+      if (appliedDate instanceof Date && !isNaN(appliedDate.getTime())) {
+        // Convertir la fecha al formato 'dd/mm/yyyy'
+        return `${appliedDate.getDate()}/${appliedDate.getMonth() + 1}/${appliedDate.getFullYear()}`;
+      }
+      return appliedDate;
+    },
   })
   appliedDate!: Date;
 
