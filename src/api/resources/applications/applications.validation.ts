@@ -17,14 +17,14 @@ import { Request, Response, NextFunction } from 'express';
 const blueprintApplication = Joi.object({
   position: Joi.string().required(),
   company: Joi.string().required(),
-  companyWebsite: Joi.string().required(),
-  linkApplication: Joi.string().required(),
+  companyWebsite: Joi.any(),
+  linkApplication: Joi.any(),
   status: Joi.string().required(),
   notes: Joi.any(),
   appliedDate: Joi.string().required(),
   name: Joi.string().required(),
   email: Joi.string().email().required(),
-  linkedin: Joi.string().required(),
+  linkedin: Joi.any(),
 });
 
 /*
