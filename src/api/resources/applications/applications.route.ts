@@ -97,13 +97,13 @@ applicationsRouter.get('/export', [jwtAuthenticate], procesarErrores(async (req:
           id: application.id,
           position: application.position,
           company: application.company,
-          companyWebsite: application.companyWebsite,
-          linkApplication: application.linkApplication,
+          companyWebsite: application?.companyWebsite,
+          linkApplication: application?.linkApplication,
           status: application.status,
-          notes: application.notes,
+          notes: application?.notes,
           appliedDate: application.appliedDate,
-          contactName: application.contact.name,
-          contactLinkedin: application.contact.contactLinkedin
+          contactName: application.contact?.name,
+          contactLinkedin: application.contact?.contactLinkedin
       });
   });
 
