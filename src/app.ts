@@ -63,6 +63,12 @@ if (config.ambiente === 'prod') {
 }
 
 //const server = app.listen(3000, () => console.log('Server listening on port 3000'));
-const server = app.listen(3000);
+
+const port = process.env.NODE_ENV === 'test'  ? process.env.PORT_TEST :  process.env.PORT;
+
+const server = app.listen(port, () => {
+    console.log(`Enviroment ${process.env.NODE_ENV}`);
+    console.log(`Server is running on port ${port}`);
+});
 
 export { app, server };

@@ -10,7 +10,9 @@ import { Contact } from "../models/contact.model";
 import { Application } from "../models/application.models";
 
 dotenv.config();
-
+// Determina el nombre de la base de datos basándose en el entorno
+const dbName = process.env.NODE_ENV === 'test'  ? process.env.DB_NAME_TEST : process.env.DB_NAME;
+console.log("name of database :"+ dbName)
 /*
 
  - connection it creates a Sequelize instance for connecting to a MySQL database. 
@@ -25,7 +27,7 @@ dotenv.config();
     host: process.env.DB_HOST,
     username:process.env.DB_USER,
     password:process.env.DB_PASS,
-    database:process.env.DB_NAME,
+    database:dbName,
     logging: false,
     models: [
         User,

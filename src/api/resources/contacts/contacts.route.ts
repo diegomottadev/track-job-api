@@ -8,6 +8,7 @@ import {ContactNotExist } from './contacts.error';
 import { Op } from 'sequelize';
 import ExcelJS from 'exceljs';
 import fs from 'fs';
+import { validationContact } from './contacts.validation';
 
 
 const jwtAuthenticate = passport.authenticate('jwt', { session: false });
@@ -123,7 +124,7 @@ contactRouter.get('/:id', [jwtAuthenticate, checkUserRolePermission('Read')], pr
   }
 }));
 
-contactRouter.put('/:id', [jwtAuthenticate, checkUserRolePermission('Update')], procesarErrores(async (req: Request, res: Response) => {
+contactRouter.put('/:id', [jwtAuthenticate, checkUserRolePermission('Update')],validationContact, procesarErrores(async (req: Request, res: Response) => {
   const id = parseInt(req.params.id);
   const contact = req.body;
 

@@ -26,7 +26,7 @@ const blueprintContact = Joi.object({
 
 */
 
-export const validationApplication = (req: Request, res: Response, next: NextFunction) => {
+export const validationContact = (req: Request, res: Response, next: NextFunction) => {
   const resultado = blueprintContact.validate(req.body, { abortEarly: false, convert: false });
   if (resultado.error === undefined) {
     next();
@@ -35,6 +35,6 @@ export const validationApplication = (req: Request, res: Response, next: NextFun
       return `[${error.message}]`;
     });
     log.warn(`The contact data did not pass validation: ${JSON.stringify(req.body)} - ${errorDeValidacion}`);
-    res.status(400).send(`${errorDeValidacion}`);
+    res.status(400).json({errors:`${errorDeValidacion}`});
   }
 };

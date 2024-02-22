@@ -142,7 +142,7 @@ applicationsRouter.get('/:id', [jwtAuthenticate, checkUserRolePermission('Read')
   }
 }));
 
-applicationsRouter.put('/:id', [jwtAuthenticate, checkUserRolePermission('Update')], procesarErrores(async (req: Request, res: Response) => {
+applicationsRouter.put('/:id', [jwtAuthenticate, checkUserRolePermission('Update')],validationApplication, procesarErrores(async (req: Request, res: Response) => {
   const id = parseInt(req.params.id);
   const application= req.body;
   const {  contact } = req.body;
